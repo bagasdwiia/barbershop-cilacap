@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbershop Cilacap — Precision Cuts &amp; Grooming</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <span class="brand-mark">BC</span>
+        <div class="brand-text">
+          <span class="brand-title">BARBERSHOP CILACAP</span>
+          <span class="brand-sub">ATELIER &amp; GROOMING</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#booking">Reservasi</a>
+        <a href="#kapster">Kapster</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#lokasi">Lokasi</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn-ghost" id="openHistoryBtn" aria-label="Riwayat Booking">
+          <span>Riwayat</span>
+          <span class="badge-count" id="historyCount">0</span>
+        </button>
+        <a href="#booking" class="btn-gold btn-sm">Book Now</a>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Buka Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">CILACAP • PRECISION GROOMING STUDIO</p>
+      <h1>Potongan Presisi.<br /><em>Karakter Tanpa Kompromi.</em></h1>
+      <p class="hero-desc">
+        Pengalaman grooming modern di jantung Kota Cilacap. Konsultasi bentuk wajah,
+        potongan presisi, hingga perawatan rambut dan jenggot tanpa perlu antre lama.
+      </p>
+      <div class="hero-cta">
+        <a href="#booking" class="btn-gold">Reservasi Jadwal Sekarang</a>
+        <a href="#lookbook" class="btn-outline">Lihat Lookbook Gaya</a>
+      </div>
+
+      <div class="hero-meta">
+        <div class="meta-item">
+          <span class="meta-label">JAM OPERASIONAL</span>
+          <span class="meta-value">Setiap Hari, 10:00 – 21:00 WIB</span>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <span class="meta-label">LOKASI STUDIO</span>
+          <span class="meta-value">Jl. Jend. Sudirman, Cilacap</span>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <span class="meta-label">SISTEM ANTREAN</span>
+          <span class="meta-value">E-Ticket &amp; Konfirmasi WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING ENGINE SECTION -->
+  <section id="booking" class="section booking-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">ONLINE RESERVATION</p>
+        <h2>Atur Jadwal Kedatangan Anda</h2>
+        <p class="section-sub">Pilih layanan, kapster favorit, serta slot waktu yang tersedia.</p>
+      </div>
+
+      <div class="booking-layout">
+        <!-- LEFT: 4-STEP FORM -->
+        <div class="booking-steps">
+          <!-- STEP 1: LAYANAN -->
+          <div class="step-card">
+            <div class="step-header">
+              <span class="step-num">01</span>
+              <div>
+                <h3>Pilih Layanan</h3>
+                <p>Dapat memilih lebih dari satu layanan sekaligus</p>
+              </div>
+            </div>
+
+            <div class="category-tabs" id="categoryTabs">
+              <button type="button" class="tab-btn active" data-category="all">Semua</button>
+              <button type="button" class="tab-btn" data-category="haircut">Haircut</button>
+              <button type="button" class="tab-btn" data-category="grooming">Grooming &amp; Beard</button>
+              <button type="button" class="tab-btn" data-category="treatment">Treatment &amp; Color</button>
+            </div>
+
+            <div class="services-grid" id="servicesGrid"></div>
+          </div>
+
+          <!-- STEP 2: KAPSTER -->
+          <div class="step-card">
+            <div class="step-header">
+              <span class="step-num">02</span>
+              <div>
+                <h3>Pilih Kapster</h3>
+                <p>Sesuaikan dengan spesialisasi gaya potongan Anda</p>
+              </div>
+            </div>
+            <div class="barbers-grid" id="barbersGrid"></div>
+          </div>
+
+          <!-- STEP 3: TANGGAL & JAM -->
+          <div class="step-card">
+            <div class="step-header">
+              <span class="step-num">03</span>
+              <div>
+                <h3>Pilih Tanggal &amp; Waktu</h3>
+                <p>Slot waktu diperbarui secara real-time (WIB)</p>
+              </div>
+            </div>
+
+            <label class="field-label">Tanggal Kedatangan</label>
+            <div class="date-strip" id="dateStrip"></div>
+
+            <label class="field-label mt-20">Jam Tersedia</label>
+            <div class="time-grid" id="timeGrid"></div>
+          </div>
+
+          <!-- STEP 4: DATA PELANGGAN -->
+          <div class="step-card">
+            <div class="step-header">
+              <span class="step-num">04</span>
+              <div>
+                <h3>Data Pelanggan</h3>
+                <p>Digunakan untuk penerbitan E-Ticket dan konfirmasi WhatsApp</p>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="customerName">Nama Lengkap *</label>
+                <input
+                  type="text"
+                  id="customerName"
+                  placeholder="Contoh: Bagas Pratama"
+                  autocomplete="name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="customerPhone">Nomor WhatsApp *</label>
+                <input
+                  type="tel"
+                  id="customerPhone"
+                  placeholder="Contoh: 081234567890"
+                  autocomplete="tel"
+                />
+              </div>
+            </div>
+
+            <div class="form-group mt-16">
+              <label for="bookingNotes">Catatan Gaya Rambut (Opsional)</label>
+              <textarea
+                id="bookingNotes"
+                rows="2"
+                placeholder="Contoh: Bagian samping mid fade, atas dirapikan sedikit..."
+              ></textarea>
+              <div class="quick-tags" id="quickTags"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: STICKY SUMMARY -->
+        <aside class="summary-column">
+          <div class="summary-card">
+            <div class="summary-top">
+              <span class="eyebrow">RINGKASAN RESERVASI</span>
+              <h4>Barbershop Cilacap</h4>
+            </div>
+
+            <div class="summary-body">
+              <div class="summary-row">
+                <span class="s-label">Kapster</span>
+                <span class="s-val" id="sumBarber">Belum dipilih</span>
+              </div>
+              <div class="summary-row">
+                <span class="s-label">Tanggal &amp; Jam</span>
+                <span class="s-val" id="sumDateTime">Belum dipilih</span>
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <div class="s-label mb-8">Layanan Terpilih</div>
+              <div class="summary-services" id="sumServicesList">
+                <p class="empty-hint">Belum ada layanan dipilih.</p>
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <div class="summary-row">
+                <span class="s-label">Estimasi Durasi</span>
+                <span class="s-val" id="sumDuration">0 Menit</span>
+              </div>
+              <div class="summary-total">
+                <span>Total Estimasi</span>
+                <span id="sumTotal">Rp 0</span>
+              </div>
+            </div>
+
+            <button type="button" class="btn-gold btn-full" id="confirmBookingBtn">
+              Konfirmasi &amp; Terbitkan E-Ticket
+            </button>
+            <p class="summary-note">
+              Pembayaran dilakukan langsung di studio setelah sesi selesai (Tunai / QRIS).
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- KAPSTER SHOWCASE -->
+  <section id="kapster" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">OUR ARTISANS</p>
+        <h2>Tim Kapster Profesional</h2>
+        <p class="section-sub">Berpengalaman menangani berbagai tekstur rambut dan gaya klasik hingga modern.</p>
+      </div>
+      <div class="showcase-grid" id="barberShowcase"></div>
+    </div>
+  </section>
+
+  <!-- LOOKBOOK SECTION -->
+  <section id="lookbook" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">STYLE INSPIRATION</p>
+        <h2>Lookbook Barbershop Cilacap</h2>
+        <p class="section-sub">Klik gaya rambut di bawah untuk langsung memasukkannya ke catatan reservasi.</p>
+      </div>
+      <div class="lookbook-grid" id="lookbookGrid"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER & LOKASI -->
+  <footer id="lokasi" class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand mb-12">
+          <span class="brand-mark">BC</span>
+          <div class="brand-text">
+            <span class="brand-title">BARBERSHOP CILACAP</span>
+            <span class="brand-sub">ATELIER &amp; GROOMING</span>
+          </div>
+        </div>
+        <p class="footer-desc">
+          Ruang grooming pria modern di Cilacap dengan standar kebersihan alat steril,
+          konsultasi personal, dan kenyamanan maksimal.
+        </p>
+      </div>
+
+      <div>
+        <h5>Alamat &amp; Kontak</h5>
+        <p class="footer-item">Jl. Jend. Sudirman No. 48, Sidanegara, Cilacap Tengah, Kab. Cilacap</p>
+        <p class="footer-item">WhatsApp: +62 812-3456-7890</p>
+        <p class="footer-item">Instagram: @barbershopcilacap</p>
+      </div>
+
+      <div>
+        <h5>Jam Buka</h5>
+        <p class="footer-item">Senin – Jumat: 10:00 – 21:00 WIB</p>
+        <p class="footer-item">Sabtu – Minggu: 09:30 – 21:30 WIB</p>
+        <a href="#booking" class="btn-outline btn-sm mt-12">Buat Janji Temu</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Barbershop Cilacap. All rights reserved.</span>
+      <span>Cilacap, Jawa Tengah</span>
+    </div>
+  </footer>
+
+  <!-- MODAL: DIGITAL E-TICKET -->
+  <div class="modal-backdrop" id="ticketModal" aria-hidden="true">
+    <div class="modal-box ticket-box">
+      <button type="button" class="modal-close" id="closeTicketModal" aria-label="Tutup">&times;</button>
+
+      <div class="ticket-header">
+        <span class="ticket-badge">RESERVASI TERKONFIRMASI</span>
+        <h3>E-Ticket Booking</h3>
+        <p class="ticket-code" id="ticketCode">#BBC-2026-001</p>
+      </div>
+
+      <div class="ticket-perforation"></div>
+
+      <div class="ticket-details" id="ticketDetails"></div>
+
+      <div class="ticket-actions">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-gold btn-full" id="sendWaBtn">
+          Kirim Konfirmasi ke WhatsApp
+        </a>
+        <button type="button" class="btn-outline btn-full" id="copyTicketBtn">
+          Salin Detail E-Ticket
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: RIWAYAT BOOKING -->
+  <div class="modal-backdrop" id="historyModal" aria-hidden="true">
+    <div class="modal-box history-box">
+      <div class="modal-head-row">
+        <div>
+          <span class="eyebrow">LOCAL ARCHIVE</span>
+          <h3>Riwayat Booking Anda</h3>
+        </div>
+        <button type="button" class="modal-close static" id="closeHistoryModal" aria-label="Tutup">&times;</button>
+      </div>
+
+      <div class="history-list" id="historyList"></div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
