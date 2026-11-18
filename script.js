@@ -4,7 +4,7 @@
 ========================================================= */
 const CONFIG = {
   shopName: "Barbershop Cilacap",
-  whatsappNumber: "0882007884604", // Format internasional tanpa tanda '+'
+  whatsappNumber: "62882007884604", // Format internasional tanpa tanda '+'
   address: "Jl. Jend. Sudirman No. 48, Cilacap",
   storageKey: "barbershop_cilacap_bookings_v1"
 };
